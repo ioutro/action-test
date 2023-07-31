@@ -6,6 +6,7 @@ import 'package:desafio_clock_it_in/features/collaborators/services/notification
 import 'package:desafio_clock_it_in/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fpdart/fpdart.dart' show Right;
 import 'package:hive_flutter/adapters.dart';
 
 import 'package:http/http.dart' as http;
@@ -43,6 +44,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    const test = Right<int, int>(3);
     return BlocProvider(
       create: (_) => AuthCubit(
         userRepository: AuthUserRepository(httpClient: http.Client()),
