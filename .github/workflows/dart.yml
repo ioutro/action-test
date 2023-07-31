@@ -52,7 +52,7 @@ jobs:
         uses: dorny/test-reporter@v1.6.0
         with:
           name: '🧪📊 Unit tests report'
-          path: reports/test_report.json
+          path: reports/test_results.json
           reporter: 'flutter-json'
           max-annotations: '50'
           # token: ${{ secrets.GITHUB_TOKEN }}
