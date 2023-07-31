@@ -21,7 +21,9 @@ jobs:
       - name: Give GitHub Actions access to custom fpdart repo
         uses: webfactory/ssh-agent@v0.5.4
         with:
-          ssh-private-key: ${{ secrets.SECRET_FPDART_DEPLOY_KEY }}
+          ssh-private-key: | 
+            ${{ secrets.SECRET_FPDART_DEPLOY_KEY }}
+            ${{ secrets.SECRET_PRIME_DEPLOY_KEY }}
 
       - uses: subosito/flutter-action@v2.3.0
         with:
