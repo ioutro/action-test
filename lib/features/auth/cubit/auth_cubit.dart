@@ -1,5 +1,6 @@
 import 'package:desafio_clock_it_in/features/auth/services/local_auth_service.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../models/token.dart';
@@ -76,7 +77,9 @@ class AuthCubit extends Cubit<AuthState> {
 
       // expired token
       if (newToken == null) {
-        print("token expired");
+        if (kDebugMode) {
+          print("token expired");
+        }
         await _tokenRepository.deleteToken();
         emit(AuthLoggedOut());
         return;
