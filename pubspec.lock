@@ -392,6 +392,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fpdart:
+    dependency: "direct main"
+    description:
+      path: "packages/fpdart"
+      ref: main
+      resolved-ref: "8029b77d7eb520284e80262d84c14ab9ea2150eb"
+      url: "git@github.com:ioutro/fpdart2.git"
+    source: git
+    version: "1.0.0"
   frontend_server_client:
     dependency: transitive
     description:

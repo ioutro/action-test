@@ -19,7 +19,7 @@ class CollaboratorDetailsScreen extends StatelessWidget {
             subtitle: Text(colaborator.name),
           ),
           ListTile(
-            title: Text('ID'),
+            title: const Text('ID'),
             subtitle: Text(colaborator.id),
           ),
           ListTile(

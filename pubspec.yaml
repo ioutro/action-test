@@ -45,6 +45,13 @@ dependencies:
   equatable: ^2.0.5
   firebase_core: ^2.15.0
 
+  # fpdart from github
+  fpdart: 
+    git:
+      url: git@github.com:ioutro/fpdart2.git
+      path: packages/fpdart
+      ref: main
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -2,7 +2,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import '../models/collaborator.dart';
 
-
 abstract interface class INotificationService {
   Future<void> init();
   Future<void> showNotificationWithColaborator(Collaborator colaborator);
@@ -44,15 +43,11 @@ class NotificationService implements INotificationService {
       onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
       onDidReceiveNotificationResponse:
           (NotificationResponse notificationResponse) {
-        print("notification response");
         switch (notificationResponse.notificationResponseType) {
           case NotificationResponseType.selectedNotification:
-            print(notificationResponse.payload);
             break;
           case NotificationResponseType.selectedNotificationAction:
-            if (notificationResponse.actionId == 'sdf') {
-              print(notificationResponse.payload);
-            }
+            if (notificationResponse.actionId == 'sdf') {}
             break;
         }
       },
@@ -60,7 +55,8 @@ class NotificationService implements INotificationService {
   }
 
   @override
-  Future<void> showNotificationWithColaborator(Collaborator collaborator) async {
+  Future<void> showNotificationWithColaborator(
+      Collaborator collaborator) async {
     await flutterLocalNotificationsPlugin.show(
       collaborator.personalId, // Unique id for the notification
       'Colaborator Info',
@@ -71,7 +67,6 @@ class NotificationService implements INotificationService {
   }
 }
 
-// TODO: REMOVE
 @pragma('vm:entry-point')
 void notificationTapBackground(NotificationResponse notificationResponse) {
   // ignore: avoid_print

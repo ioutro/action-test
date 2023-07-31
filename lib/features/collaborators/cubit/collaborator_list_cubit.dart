@@ -4,6 +4,7 @@ import 'package:desafio_clock_it_in/features/collaborators/repositories/collabor
 import 'package:desafio_clock_it_in/features/collaborators/repositories/collaborator_remote_repository.dart';
 import 'package:desafio_clock_it_in/features/collaborators/services/notification_service.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../models/collaborator.dart';
@@ -59,7 +60,9 @@ class CollaboratorListCubit extends Cubit<CollaboratorListState> {
     if (colaborators == null) return;
     if (colaborators.isEmpty) return;
 
-    print("showing notification");
+    if (kDebugMode) {
+      print("showing notification");
+    }
 
     if (colaborators.isNotEmpty) {
       final random = Random();

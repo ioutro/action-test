@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../models/token.dart';
@@ -17,7 +18,9 @@ class TokenRepository implements ITokenRepository {
   Future<void> saveToken(Token token) async {
     await secureStorage.write(key: 'accessToken', value: token.accessToken);
     await secureStorage.write(key: 'refreshToken', value: token.refreshToken);
-    print("tokens saved");
+    if (kDebugMode) {
+      print("tokens saved");
+    }
   }
 
   @override
