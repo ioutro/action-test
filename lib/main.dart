@@ -48,8 +48,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     const test = Right<String, int>(3);
 
-      // ignore: avoid_print
-      test.fold((l) => null, (r) => print(r.isPrime));
+    // ignore: avoid_print
+    test.fold((l) => null, (r) => print('${r.isPrime} is prime'));
 
     return BlocProvider(
       create: (_) => AuthCubit(
