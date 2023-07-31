@@ -11,6 +11,8 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions: write-all
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -45,14 +47,14 @@ jobs:
       # package:test for this step to succeed. Note that Flutter projects will
       # want to change this to 'flutter test'.
       - name: Run tests
-        run: flutter test
+        run: flutter test --coverage
 
       - name: 🧪✅❌ Publish test results
         id: compute_test_results
         uses: dorny/test-reporter@v1.6.0
         with:
           name: '🧪📊 Unit tests report'
-          path: reports/test_report.json
+          path: reports/test-results.json
           reporter: 'flutter-json'
           max-annotations: '50'
           # token: ${{ secrets.GITHUB_TOKEN }}
