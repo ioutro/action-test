@@ -4,7 +4,7 @@ import 'package:desafio_clock_it_in/features/collaborators/repositories/collabor
 
 import 'package:desafio_clock_it_in/features/collaborators/services/notification_service.dart';
 import 'package:desafio_clock_it_in/splash_screen.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fpdart/fpdart.dart' show Right;
@@ -14,6 +14,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:prime_numbers/prime_numbers.dart';
 
 import 'features/auth/cubit/auth_cubit.dart';
 import 'features/auth/repositories/auth_user_repository.dart';
@@ -45,10 +46,11 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    const test = Right<int, int>(3);
-    if (kDebugMode) {
-      
-    }
+    const test = Right<String, int>(3);
+
+      // ignore: avoid_print
+      test.fold((l) => null, (r) => print(r.isPrime));
+
     return BlocProvider(
       create: (_) => AuthCubit(
         userRepository: AuthUserRepository(httpClient: http.Client()),
