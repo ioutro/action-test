@@ -46,3 +46,20 @@ jobs:
       # want to change this to 'flutter test'.
       - name: Run tests
         run: flutter test
+
+      - name: 🧪✅❌ Publish test results
+        id: compute_test_results
+        uses: dorny/test-reporter@v1.6.0
+        with:
+          name: '🧪📊 Unit tests report'
+          path: reports/test_report.json
+          reporter: 'flutter-json'
+          max-annotations: '50'
+          # token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🧪📊 Publish coverage report
+        if: github.event_name == 'pull_request'
+        uses: romeovs/lcov-reporter-action@v0.3.1
+        with:
+          lcov-file: coverage/lcov.info
+          title: 'Coverage Report'
