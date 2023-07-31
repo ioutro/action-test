@@ -45,6 +45,11 @@ dependencies:
   equatable: ^2.0.5
   firebase_core: ^2.15.0
 
+  prime_numbers: 
+    git:
+      url: git@github.com:ioutro/prime_numbers2.git
+      ref: main
+
   # fpdart from github
   fpdart: 
     git:
