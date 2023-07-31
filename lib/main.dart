@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     const test = Right<int, int>(3);
     if (kDebugMode) {
-      print(test);
+      
     }
     return BlocProvider(
       create: (_) => AuthCubit(
